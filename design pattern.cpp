@@ -42,7 +42,6 @@ public:
     }
 };
 
-// Discount Calculator
 class DiscountCalculator {
 private:
     Discount* discount;
@@ -55,7 +54,6 @@ public:
     }
 
     void setDiscount(Discount* d) {
-        // Delete the old discount before setting a new one
         delete discount;
         discount = d;
     }
@@ -79,14 +77,11 @@ int main() {
     string input;
     DiscountCalculator calculator;
 
-    // Prompt for amount input
     cout << "Enter Amount: ";
     cin >> amount;
 
-    // Clear the input buffer to handle the next string input properly
     cin.ignore(); 
 
-    // Prompt for discount input
     cout << "Enter discount (No discount, 10%, 20%): ";
     getline(cin, input);
 
@@ -101,10 +96,8 @@ int main() {
         calculator.setDiscount(new NoDiscount());
     }
 
-    // Calculate the total after applying the discount
     double total = calculator.calculate(amount);
 
-    // Output the discount and total
     cout << "Discount: " << calculator.getDiscountDescription() << endl;
     cout << "Total: " << total << endl;
 
